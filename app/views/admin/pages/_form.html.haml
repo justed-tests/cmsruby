@@ -6,14 +6,17 @@
         - @page.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :title
-    = f.text_field :title
-  .field
+    = f.text_field :title, class: 'form-control'
+  .form-group
     = f.label :body
-    = f.text_area :body
-  .field
+    = f.text_area :body, class: 'form-control', rows: 13
+  .form-group
     = f.label :slug
-    = f.text_field :slug
+    = f.text_field :slug, class: 'form-control'
+  .form-group
+    = f.label :category_id
+    = f.select :category_id, Category.all.map{ |c| [c.name, c.id] }, {}, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-success'

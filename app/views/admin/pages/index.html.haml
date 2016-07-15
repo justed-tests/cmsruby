@@ -15,8 +15,9 @@
           = link_to page.title, edit_admin_page_path(page)
         %td= page.body
         %td
-          %code
-            = url_for_page page
+          =link_to url_for_page(page) do
+            %code
+              = url_for_page page
         %td= link_to 'Destroy', admin_page_path(page), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

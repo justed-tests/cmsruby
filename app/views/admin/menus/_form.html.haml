@@ -1,0 +1,22 @@
+= form_for [:admin, @menu] do |f|
+  - if @menu.errors.any?
+    .bg-warning
+      %h2= "#{pluralize(@menu.errors.count, "error")} prohibited this category from being saved:"
+      %ul
+        - @menu.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+    %br
+
+    = f.fields_for :menu_items do |c|
+      %div.well.form-inline
+        = c.label :title
+        = c.text_field :title, class: 'form-control'
+        = c.label :url
+        = c.text_field :url, class: 'form-control'
+        = c.hidden_field :id
+  .actions
+    = f.submit 'Save', class: 'btn btn-success'

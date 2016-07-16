@@ -9,6 +9,14 @@
   .form-group
     = f.label :title
     = f.text_field :title, class: 'form-control'
+  
+  %h3 Custom fields
+  = f.fields_for :fields do |c|
+    .form-group
+      = c.label :value, c.object.field_definition.key
+      = c.text_field :value, class: 'form-control'
+      = c.hidden_field :field_definition_id
+
   .form-group
     = f.label :body
     = f.cktext_area :body, class: 'form-control', rows: 13

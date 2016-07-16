@@ -17,6 +17,9 @@ module Admin
     def new
       type = Type.find_by(id: params[:type])
       @page = Page.new(type: type)
+      type.field_definitions.each do |definition|
+        @page.fields.build(field_definition: definition)
+      end
     end
 
     # GET /pages/1/edit
@@ -71,7 +74,12 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def page_params
-        params.require(:page).permit(:title, :body, :slug, :category_id)
+        params.require(:page).permit(:title,
+                                     :body,
+                                     :slug,
+                                     :category_id,
+                                     :type_id,
+                                     fields_attributes: [:value, :field_definition_id, :id])
       end
   end
 end

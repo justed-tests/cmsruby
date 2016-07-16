@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :pages
     resources :categories
     resources :menus, except: [:show]
+    resources :types, except: [:show]
   end
 
   Page.where.not('slug', nil).all.each do |page|

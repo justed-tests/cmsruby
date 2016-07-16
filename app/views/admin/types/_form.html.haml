@@ -1,0 +1,20 @@
+= form_for [:admin, @type] do |f|
+  - if @type.errors.any?
+    .bg-warning
+      %h2= "#{pluralize(@type.errors.count, "error")} prohibited this category from being saved:"
+      %ul
+        - @type.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+    %br
+
+    = f.fields_for :field_definitions do |c|
+      %div.well.form-inline
+        = c.label :key
+        = c.text_field :key, class: 'form-control'
+        = c.hidden_field :id
+  .actions
+    = f.submit 'Save', class: 'btn btn-success'

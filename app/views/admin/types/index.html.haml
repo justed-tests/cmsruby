@@ -1,0 +1,25 @@
+%h1 Listing types
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+
+  %tbody
+    - @types.each do |type|
+      %tr
+        %td
+          = type.name
+          %ul
+            - type.field_definitions.each do |fd|
+              %li
+                = fd.key
+
+        %td= link_to 'Edit', edit_admin_type_path(type)
+        %td= link_to 'Destroy', admin_type_path(type), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Menu', new_admin_type_path, class: 'btn btn-primary'

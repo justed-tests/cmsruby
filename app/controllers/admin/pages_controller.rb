@@ -15,7 +15,8 @@ module Admin
 
     # GET /pages/new
     def new
-      @page = Page.new
+      type = Type.find_by(id: params[:type])
+      @page = Page.new(type: type)
     end
 
     # GET /pages/1/edit

@@ -5,6 +5,11 @@ module ApplicationHelper
     root_path + (slug.present? ? slug : "pages/#{page.id}")
   end
 
+  def url_for_category(category)
+    #slug = page.slug
+    #root_path + (slug.present? ? slug : "pages/#{page.id}")
+  end
+
   def url_for_menu_item(item)
     url = item.url
     if url =~ %r{:\/\/}

@@ -8,7 +8,7 @@ module Admin
 
     def update
       setting_params.each do |key, value|
-        Setting.find_by(key: key).update_attribute(value: value)
+        Setting.find_by(key: key).update(value: value)
       end
 
       Rails.application.reload_routes!

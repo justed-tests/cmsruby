@@ -1,6 +1,6 @@
 module Admin
   # controller for settings
-  class SettingsController < ApplicationController
+  class SettingsController < AdminController
     def index
       @settings = Setting.all
       @themes = get_themes

@@ -62,6 +62,7 @@ gem 'puma'
 gem 'redcarpet'
 gem 'font-awesome-sass'
 
+gem 'devise'
 gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'

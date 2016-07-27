@@ -1,6 +1,6 @@
 module Admin
   # controller !
-  class TypesController < ApplicationController
+  class TypesController < AdminController
     before_action :set_type, only: [:edit, :update, :destroy]
 
     def index

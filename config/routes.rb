@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root to: redirect(Setting.find_by(key: 'homepage').value)
 
   mount Ckeditor::Engine => '/ckeditor'

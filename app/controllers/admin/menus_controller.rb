@@ -1,6 +1,6 @@
 module Admin
   # controller !
-  class MenusController < ApplicationController
+  class MenusController < AdminController
     before_action :set_menu, only: [:edit, :update, :destroy]
 
     def index
